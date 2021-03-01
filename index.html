@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- CSS only -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
+  <title>Document</title>
+</head>
+
+<body class='bg-secondary '>
+  <nav class="navbar  navbar-dark bg-dark p-3">
+    <div class="container-fluid">
+      <a class="navbar-brand">Ciné-Tek</a>
+      <form class="d-flex">
+        <ul class="nav justify-content-end">
+          <li class="nav-item">
+            <a class="nav-link active" id aria-current="page" href="#">Active</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+          </li>
+        </ul>
+      </form>
+    </div>
+  </nav>
+  <div class="wrapper">
+    <div class="col-7">
+      <main class="container p-5 bg-light">
+        <h1>Recherchez vos film ou serie preferez</h1>
+        <div class='row' >
+          
+          <form class="row row-cols-lg-auto g-3 align-items-center ">
+            
+            <div class="col-12">
+
+
+
+              <input type="text" class="form-control" id='title' placeholder="Titre">
+
+
+            </div>
+
+            <div class="col-12">
+
+
+
+              <input type="number" class="form-control" id="date" placeholder="Année">
+
+            </div>
+
+            <div class="col-12">
+
+
+              <select name="" class="form-control" id="type">
+
+                <option value="movie">Film</option>
+                <option value="series">Serie</option>
+                <option value="episode">Episode</option>
+              </select>
+
+
+            </div>
+
+            <div class="col-12">
+              <button type="button" class="btn btn-primary" id='search'>Submit</button>
+            </div>
+          </form>
+
+          <div class='wrapper-left col-12'>
+            <div id='card-wrapper' class='row'></div>
+          </div>
+
+
+        </div>
+
+
+      </main>
+    </div>
+    <div class='aside-right col-5'>
+      <div class=" stick ">
+        <div id='card-selected' class="card   " style="max-width: 430px;">
+          <div class="row">
+            <div class="col-md-4">
+              <img src="./img/film.jfif" class="card-img-top" alt="..." style='width:120px;height:auto;'>
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h5 class="card-title">Movie Card</h5>
+                <p>Realisateur : ********* </p>
+                <p>Acteur : *******,******,******* </p>
+                <p class="card-text">Resumer du film selectioner</p>
+
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+        <div class="col-10">
+          <h2 class='table-title'>Votre liste de films</h2>
+          <table class="table table-dark ">
+            <thead>
+              <tr>
+                <td>Film</td>
+                <td>Année</td>
+                <td>Realisateur</td>
+
+              </tr>
+            </thead>
+            <tbody id='tbody'>
+              <tr>
+                <td>Exemple 1</td>
+                <td>2***</td>
+                <td>*******</td>
+                <td><button type="button" class="btn-close btn-close-white" aria-label="Close"></button></td>
+              </tr>
+              <tr>
+                <td>Exemple 2</td>
+                <td>2***</td>
+                <td>*******</td>
+                <td><button type="button" class="btn-close btn-close-white" aria-label="Close"></button></td>
+              </tr>
+
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+
+  <footer class=' bg-dark p-2'>
+    <p>cine.Tek@gmail.fr</p>
+  </footer>
+  <script src="./app.js"></script>
+</body>
+
+</html>
