@@ -35,44 +35,30 @@
     </div>
   </nav>
   <div class="wrapper">
-    <div class="col-7">
-      <main class="container p-5 bg-light">
+    <div class="col-6">
+      <main class="container p-4  bg-light">
         <h1>Recherchez vos film ou serie preferez</h1>
-        <div class='row' >
-          
+        <div class='row'>
+
           <form class="row row-cols-lg-auto g-3 align-items-center ">
-            
-            <div class="col-12">
 
-
-
-              <input type="text" class="form-control" id='title' placeholder="Titre">
-
-
+            <div class="col-12 search">
+              <input type="text" class="form-control" id='title' placeholder="Exemple :   Star wars">
             </div>
 
-            <div class="col-12">
-
-
-
+            <div class="col-12 search">
               <input type="number" class="form-control" id="date" placeholder="Année">
-
             </div>
 
-            <div class="col-12">
-
-
+            <div class="col-12 search">
               <select name="" class="form-control" id="type">
 
                 <option value="movie">Film</option>
                 <option value="series">Serie</option>
                 <option value="episode">Episode</option>
-              </select>
+              </select> </div>
 
-
-            </div>
-
-            <div class="col-12">
+            <div class="col-12 search">
               <button type="button" class="btn btn-primary" id='search'>Submit</button>
             </div>
           </form>
@@ -87,19 +73,19 @@
 
       </main>
     </div>
-    <div class='aside-right col-5'>
-      <div class=" stick ">
-        <div id='card-selected' class="card   " style="max-width: 430px;">
+    <div class='aside-right col-6 '>
+      <div class=" stick pb-5 ">
+        <div id='card-selected' class="card   " style="max-width: 530px;">
           <div class="row">
             <div class="col-md-4">
-              <img src="./img/film.jfif" class="card-img-top" alt="..." style='width:120px;height:auto;'>
+              <img src="./img/film.jpg" class="card-img-top" alt="..." style='width:150px;height:auto;'>
             </div>
             <div class="col-md-8">
               <div class="card-body">
                 <h5 class="card-title">Movie Card</h5>
                 <p>Realisateur : ********* </p>
                 <p>Acteur : *******,******,******* </p>
-                <p class="card-text">Resumer du film selectioner</p>
+                <p class="card-text">Résumé du film selectioner</p>
 
               </div>
             </div>
@@ -107,16 +93,16 @@
 
 
         </div>
-        <div class="col-10">
+        <div class="col-11">
           <h2 class='table-title'>Votre liste de films</h2>
-          <table class="table table-dark ">
+          <table class="table table-dark  ">
             <thead>
-              <tr>
+              <tr> 
                 <td>Film</td>
                 <td>Année</td>
                 <td>Realisateur</td>
-
               </tr>
+              
             </thead>
             <tbody id='tbody'>
               <tr>
@@ -125,13 +111,7 @@
                 <td>*******</td>
                 <td><button type="button" class="btn-close btn-close-white" aria-label="Close"></button></td>
               </tr>
-              <tr>
-                <td>Exemple 2</td>
-                <td>2***</td>
-                <td>*******</td>
-                <td><button type="button" class="btn-close btn-close-white" aria-label="Close"></button></td>
-              </tr>
-
+              
             </tbody>
           </table>
         </div>

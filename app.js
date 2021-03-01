@@ -48,7 +48,8 @@ urlSearch = `http://www.omdbapi.com/?s=${title}&y=${year}&type=movie&apikey=${ke
    
   
 })
-
+var firstUrl  =`http://www.omdbapi.com/?s=star wars&apikey=${key}`;
+callMovie(firstUrl)
 function callMovie(url){
     var xhr = new XMLHttpRequest();
     
@@ -107,11 +108,17 @@ cards.forEach( card => {
 
 var cardSelected= document.querySelector('#card-selected');
 
-function callTitleRequest(i){
+function callTitleRequest(i,t){
     cardSelected.innerHTML='';
     let xhr2 = new XMLHttpRequest()
-    
-var urlTitle = `http://www.omdbapi.com/?i=${i}&apikey=${key}&`
+    var urlTitle;
+    if(i === 0){
+        urlTitle = `http://www.omdbapi.com/?t=${t}&apikey=${key}&`
+    }else{
+        urlTitle = `http://www.omdbapi.com/?i=${i}&apikey=${key}&`
+         
+    }
+
 
     xhr2.onreadystatechange = ()=>{
 if(xhr2.readyState === 4){
@@ -119,10 +126,11 @@ if(xhr2.readyState === 4){
       var title = response2.Title;
       var director=response2.Director;
       var year = response2.Year;
+     
  let newCard =`
  <div class='row'>
  <div class="col-md-4">
- <img src="${response2.Poster}" class="card-img-top" alt="..." style='width:150px; height:auto;'>
+ <img src="${response2.Poster}" class="card-img-top" alt="..." style='width:170px; height:auto;'>
  </div>
  <div class="col-md-8">
  <div class="card-body">
@@ -154,31 +162,68 @@ function makeTab(){
     tBody.innerHTML='';  
     console.log(films)
     films.forEach( film =>{
-       
+      
         let ligneOfTab = ` <tr>
         <td>${film.name}</td>
         <td>${film.year}</td>
         <td>${film.author}</td>
-        <td><button type="button" class="btn-close btn-close-white" aria-label="Close"></button></td>
+        <td><button type="button"  class="btn-close btn-close-white delete" aria-label="Close"></button></td>
         </tr>`
           tBody.innerHTML+= ligneOfTab; 
+          
+          var btnDelete = document.querySelectorAll('.delete');
+         
+
+         
+          btnDelete.forEach( (btn,index) => {
+             
+              btn.addEventListener('click',function(){
+               
+                  films.splice(index,1)
+                 makeTab()
+                })
+          })
         })
+        clickOnTab()
+}
+
+
+function clickOnTab(){
+    var lignesOfTab = document.querySelectorAll('tr')
+    lignesOfTab.forEach( ligne =>{
+        ligne.addEventListener('click', function(){
+            
+            let title = ligne.childNodes[1].textContent;
+            if(title !== 'Film'){ 
+             callTitleRequest(0,title)
+            }
+        })
+    })
 }
 
 
 
 
-
-
-
-  function addClick(t,y,d){
+  function addClick(t,y,d,i){
     var btnsAdd = document.querySelector('#add')
     btnsAdd.addEventListener('click',function(){
-        console.log('ca marche')
-          let newFilm = {name:t,year:y,author:d}    
-       
-films.push(newFilm)
+        
+          let newFilm = {name:t,year:y,author:d,id:i} 
+          var num =0;   
+      films.forEach( film =>{
+          
+          if(film.name != newFilm.name){
+num+=1;
+          }
+      })
+      if(num === films.length){
 
-makeTab()
+        films.push(newFilm)
+        console.log(films)
+        makeTab()
+      }
+      
+
+
     }) 
   }
